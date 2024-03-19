@@ -1,8 +1,11 @@
+import Navbar from "../../components/Navbar/Navbar";
+import { Container } from "../../global.styles";
+
 const EnglishElement = () => {
     return (
-        <>
-            <h1>Hello world</h1>
-        </>
+        <Container>
+            <Navbar lang="en" />
+        </Container>
     )
 }
 
