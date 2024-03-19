@@ -1,0 +1,9 @@
+const EnglishElement = () => {
+    return (
+        <>
+            <h1>Hello world</h1>
+        </>
+    )
+}
+
+export default EnglishElement;
