@@ -8,6 +8,7 @@ const Navbar = ({ lang }) => {
     const [linkProjects, setLinkProjects] = useState('Projects');
     const [linkSkills, setLinkSkills] = useState('Skills');
     const [linkContact, setLinkContact] = useState('Contact');
+    const [language, setLanguage] = useState('PT');
 
     const handleLanguage = () => {
         if (lang === 'en') {
@@ -16,6 +17,7 @@ const Navbar = ({ lang }) => {
             setLinkProjects('Projects');
             setLinkSkills('Skills');
             setLinkContact('Contact');
+            setLanguage('PT');
         } 
         
         if (lang === 'pt') {
@@ -24,6 +26,7 @@ const Navbar = ({ lang }) => {
             setLinkProjects('Projetos');
             setLinkSkills('Habilidades');
             setLinkContact('Contato');
+            setLanguage('EN');
         }
     
     }
@@ -42,17 +45,20 @@ const Navbar = ({ lang }) => {
                 </NavTitle>
 
                 <NavLinks>
-                    <NavLink to={'/about'}>
+                    <NavLink to={lang === 'en' ? 'about' : '/pt/sobre'}>
                         {linkAbout}
                     </NavLink>
-                    <NavLink to={'/projects'}>
+                    <NavLink to={lang === 'en' ? 'projects' : '/pt/projetos'}>
                         {linkProjects}
                     </NavLink>
-                    <NavLink to={'/skills'}>
+                    <NavLink to={lang === 'en' ? 'skills' : '/pt/habilidades'}>
                         {linkSkills}
                     </NavLink>
-                    <NavLink to={'/contact'}>
+                    <NavLink to={lang === 'en' ? 'contact' : '/pt/contato'}>
                         {linkContact}
+                    </NavLink>
+                    <NavLink to={lang === 'en' ? '/pt' : '/'}>
+                        {language}
                     </NavLink>
                 </NavLinks>
             </NavComponent>
@@ -61,7 +67,8 @@ const Navbar = ({ lang }) => {
 }
 
 Navbar.propTypes = {
-    lang: PropTypes.string.isRequired
+    lang: PropTypes.string.isRequired,
+    changeLanguage: PropTypes.func
 }
 
 export default Navbar;
