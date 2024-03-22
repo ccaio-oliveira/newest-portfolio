@@ -12,7 +12,7 @@ const HomePage = ({ lang }) => {
 
     return(
         <Container>
-            <Navbar lang={lang} />
+            <Navbar lang={lang} currentPage='home' />
             <ContentContainer>
                 <HomeComponent lang={lang} />
             </ContentContainer>

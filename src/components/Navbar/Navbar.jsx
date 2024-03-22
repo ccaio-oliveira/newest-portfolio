@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Header, NavComponent, NavLink, NavLinks, NavTitle, NavTitleLink, NavTitleSpan } from "./Navbar.styles"
+import { Header, LanguageButton, NavComponent, NavLink, NavLinks, NavTitle, NavTitleLink, NavTitleSpan } from "./Navbar.styles"
 import PropTypes from 'prop-types'
 
 const Navbar = ({ lang }) => {
@@ -9,6 +9,7 @@ const Navbar = ({ lang }) => {
     const [linkSkills, setLinkSkills] = useState('Skills');
     const [linkContact, setLinkContact] = useState('Contact');
     const [language, setLanguage] = useState('PT');
+    const [location, setLocation] = useState('home');
 
     const handleLanguage = () => {
         if (lang === 'en') {
@@ -31,6 +32,22 @@ const Navbar = ({ lang }) => {
     
     }
 
+    // const changeLanguage = () => {
+    //     if(currentPage === 'home'){
+    //         if(lang === 'en'){
+    //             setLocation('/#/pt');
+    //         } else {
+    //             setLocation('/');
+    //         }
+    //     } else {
+    //         if(lang === 'en'){
+    //             setLocation('/#/pt/' + currentPage);
+    //         } else {
+    //             setLocation('/#/' + currentPage);
+    //         }
+    //     }
+    // }
+
     useEffect(() => {
         handleLanguage()
     }, [lang]);
@@ -45,21 +62,23 @@ const Navbar = ({ lang }) => {
                 </NavTitle>
 
                 <NavLinks>
-                    <NavLink to={lang === 'en' ? 'about' : '/pt/sobre'}>
+                    <NavLink to={lang === 'en' ? '/about' : '/pt/sobre'}>
                         {linkAbout}
                     </NavLink>
-                    <NavLink to={lang === 'en' ? 'projects' : '/pt/projetos'}>
+                    <NavLink to={lang === 'en' ? '/projects' : '/pt/projetos'}>
                         {linkProjects}
                     </NavLink>
-                    <NavLink to={lang === 'en' ? 'skills' : '/pt/habilidades'}>
+                    <NavLink to={lang === 'en' ? '/skills' : '/pt/habilidades'}>
                         {linkSkills}
                     </NavLink>
-                    <NavLink to={lang === 'en' ? 'contact' : '/pt/contato'}>
+                    <NavLink to={lang === 'en' ? '/contact' : '/pt/contato'}>
                         {linkContact}
                     </NavLink>
-                    <NavLink to={lang === 'en' ? '/pt' : '/'}>
-                        {language}
-                    </NavLink>
+                    {/* <LanguageButton onClick={changeLanguage}>
+                        <NavLink to={location}>
+                            {language}
+                        </NavLink>
+                    </LanguageButton> */}
                 </NavLinks>
             </NavComponent>
         </Header>
@@ -68,7 +87,7 @@ const Navbar = ({ lang }) => {
 
 Navbar.propTypes = {
     lang: PropTypes.string.isRequired,
-    changeLanguage: PropTypes.func
+    // currentPage: PropTypes.string.isRequired
 }
 
 export default Navbar;

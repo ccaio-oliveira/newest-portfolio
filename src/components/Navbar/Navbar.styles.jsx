@@ -63,3 +63,17 @@ export const NavLink = styled(Link)`
         color: #61dafb;
     }
 `;
+
+export const LanguageButton = styled.button`
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: white;
+        color: #282c34;
+    }
+`;

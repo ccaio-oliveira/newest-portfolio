@@ -6,7 +6,7 @@ const HomeComponent = ({ lang }) => {
 
     return(
         <HomeContainer>
-            <ProfileImage src="https://avatars.githubusercontent.com/u/72289198?v=4" alt="Profile Image" />
+            <ProfileImage src="/images/perfil.jpg" alt="Profile Image" />
             <Title>
                 {lang === 'en' ? (
                     <>
